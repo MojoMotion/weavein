@@ -1,0 +1,20 @@
+[package]
+name = "weavein"
+version = "0.0.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+opt-level = 2
+
+
+[dependencies]
+eframe = {version="*", features = ["persistence"]}
+wasm-bindgen = "*"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+console_error_panic_hook = "*"
+tracing-wasm = "*"
+reqwasm = "*"

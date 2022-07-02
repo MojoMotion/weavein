@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+  <title>WeaveIn</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    html {
+      /* Remove touch delay: */
+      touch-action: manipulation;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="app"></canvas>
+
+  <script src="weavein.js"></script>
+  <script>
+    wasm_bindgen("./weavein_bg.wasm").then(on_wasm_loaded).catch(console.error);
+    function on_wasm_loaded() {
+      wasm_bindgen.start("app");
+    }
+  </script>
+</body>
+</html>
